@@ -119,7 +119,7 @@
 
   "autoRefreshFbstate": true,
   "autoReloginWhenChangeAccount": false,
-  "autoRestartWhenListenMqttError": false,
+  "autoRestartWhenListenMqttError": true,
 
   "restartListenMqtt": {
     "enable": true,
@@ -136,9 +136,9 @@
       "emailGetNoti": ""
     },
     "telegram": {
-      "enable": false,
-      "botToken": "",
-      "chatId": ""
+      "enable": true,
+      "botToken": "9127355370:AAEzVVaq5DU7YkfZDfr8pJO-21PQZsYskqY",
+      "chatId": "8442705758"
     },
     "discordHook": {
       "enable": false,
@@ -151,6 +151,7 @@
     "adminOnly": false,
     "threadBanned": false,
     "userBanned": false,
+    "threadBanned": false,
     "needRoleToUseCmd": false,
     "needRoleToUseCmdOnReply": false,
     "needRoleToUseCmdOnReaction": false
