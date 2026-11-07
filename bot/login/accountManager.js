@@ -1,8 +1,8 @@
-
 const fs = require("fs-extra");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "../..");
+const STATE_FILE = path.join(ROOT, "account-slot.json");
 
 const accounts = [
   { slot: 1, file: "account.txt" },
@@ -10,19 +10,22 @@ const accounts = [
   { slot: 3, file: "account3.txt" }
 ];
 
-const stateFile = path.join(ROOT, "account-slot.json");
+function getAccountFile(slot) {
+  const account = accounts.find(a => a.slot === Number(slot));
+  return account ? path.join(ROOT, account.file) : null;
+}
 
 function getAvailableAccounts() {
-  return accounts.filter(({ file }) => {
-    const filePath = path.join(ROOT, file);
-    return fs.existsSync(filePath) &&
-      fs.readFileSync(filePath, "utf8").trim().length > 0;
+  return accounts.filter(account => {
+    const file = getAccountFile(account.slot);
+    return file && fs.existsSync(file) &&
+      fs.readFileSync(file, "utf8").trim().length > 0;
   });
 }
 
 function getCurrentSlot() {
   try {
-    const state = fs.readJsonSync(stateFile);
+    const state = fs.readJsonSync(STATE_FILE);
     return Number(state.slot) || 1;
   } catch {
     return 1;
@@ -30,12 +33,29 @@ function getCurrentSlot() {
 }
 
 function setCurrentSlot(slot) {
-  fs.writeJsonSync(stateFile, { slot }, { spaces: 2 });
+  if (!accounts.some(a => a.slot === Number(slot))) {
+    throw new Error("Invalid account slot");
+  }
+
+  fs.writeJsonSync(STATE_FILE, { slot: Number(slot) }, {
+    spaces: 2
+  });
 }
 
-function getAccountFile(slot) {
-  const account = accounts.find(item => item.slot === Number(slot));
-  return account ? path.join(ROOT, account.file) : null;
+function getNextAccount() {
+  const available = getAvailableAccounts();
+  if (!available.length) return null;
+
+  const current = getCurrentSlot();
+
+  for (let i = 1; i <= 3; i++) {
+    const next = ((current - 1 + i) % 3) + 1;
+    const found = available.find(a => a.slot === next);
+
+    if (found) return found;
+  }
+
+  return null;
 }
 
 module.exports = {
@@ -43,6 +63,6 @@ module.exports = {
   getAvailableAccounts,
   getCurrentSlot,
   setCurrentSlot,
-  getAccountFile
+  getAccountFile,
+  getNextAccount
 };
-    
