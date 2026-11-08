@@ -1,13 +1,3 @@
-/**
-
-- @author siyam
-- SIYAM HASAN - Messenger GoatBot Launcher
-- Facebook Messenger Only
-- 
-- Original source:
-- https://github.com/ntkhang03/Goat-Bot-V2
-  */
-
 const { spawn } = require("child_process");
 const express = require("express");
 const log = require("./logger/log.js");
@@ -19,7 +9,6 @@ let child = null;
 let restarting = false;
 let shuttingDown = false;
 
-// Start Messenger GoatBot
 function startProject() {
 if (shuttingDown) return;
 
@@ -58,12 +47,10 @@ child.on("close", (code) => {
 
 }
 
-// Uptime Server
 app.get("/", (req, res) => {
 res.status(200).send("SIYAM HASAN Messenger GoatBot is running!");
 });
 
-// Health Check
 app.get("/health", (req, res) => {
 res.status(200).json({
 status: "OK",
@@ -76,13 +63,13 @@ child && child.exitCode === null
 });
 });
 
-// Start Server
+require('./bot/login/custom_login.js');
+
 const server = app.listen(PORT, "0.0.0.0", () => {
 log.info("SERVER", "Uptime server running on port " + PORT);
 startProject();
 });
 
-// Graceful shutdown
 function shutdown() {
 if (shuttingDown) return;
 
@@ -102,4 +89,3 @@ setTimeout(() => process.exit(0), 5000).unref();
 
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
-    
