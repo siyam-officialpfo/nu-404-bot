@@ -70,7 +70,7 @@ module.exports = {
 😁 𝐓𝐇𝐄𝐍 𝐊𝐍𝐎𝐖! 
 
 🔗 𝐆𝐢𝐭𝐇𝐮𝐛
-https://github.com/siyamxpro/siyamxpro.git`;
+https://github.com/siyam-officialpfo/nu-404-bot.git`;
 
 			return api.sendMessage({
 				body: messageBody,
@@ -87,7 +87,7 @@ https://github.com/siyamxpro/siyamxpro.git`;
 🤮 𝐓𝐇𝐄𝐍 𝐊𝐍𝐎𝐖! 
 
 🔗 𝐆𝐢𝐭𝐇𝐮𝐛
-https://github.com/siyamxpro/siyamxpro.git`;
+https://github.com/siyam-officialpfo/nu-404-bot.git`;
 
 			return api.sendMessage(fallbackBody, threadID, messageID);
 		}
