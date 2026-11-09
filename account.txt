@@ -1,1 +1,47 @@
-এখানে আপনার ফেসবুক আইডির কুকি বসান
+[
+    {
+        "key": "datr",
+        "value": "fmHxandQhWucI2fITejli8yT",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2026-11-09T06:01:43.274Z",
+        "lastAccessed": "2026-11-09T06:01:43.281Z"
+    },
+    {
+        "key": "sb",
+        "value": "fmHxaioi0bAMm9FOajRBGgSr",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2026-11-09T06:01:43.281Z",
+        "lastAccessed": "2026-11-09T06:01:43.281Z"
+    },
+    {
+        "key": "m_pixel_ratio",
+        "value": "2",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2026-11-09T06:01:43.281Z",
+        "lastAccessed": "2026-11-09T06:01:43.281Z"
+    },
+    {
+        "key": "wd",
+        "value": "360x800",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2026-11-09T06:01:43.281Z",
+        "lastAccessed": "2026-11-09T06:01:43.281Z"
+    },
+    {
+        "key": "fr",
+        "value": "0mFIresMt89gxEZOK..Bq8WF_..AAA.0.0.Bq8WGn.AWeEEy4tvgFoBQBztsgI57kGRuU",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2026-11-09T06:01:43.281Z",
+        "lastAccessed": "2026-11-09T06:01:43.281Z"
+    }
+]
